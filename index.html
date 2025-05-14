@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+<div class="container">
+
+    <div id="home" class="page active">
+        <h1></h1>
+        <p class="quote"> alooo sayanggg </p>
+        <p> 
+            sayanggg, gimana masi sakit? uu cian banget cepet sembuh ya sayang akuu, pasti kamu kurang makan ya? atw kurang
+            tidur? tapi ga mungkin klo kurang tidur org kamu tidur mulu, makanny yang teratur sama minum air putih yang cukup
+            aku cuman nyuruh kamu itu doang kok ga lebih, nurut sama aku yaaaa, aku cuma mau kamu nurut sama aku, aku udah 
+            seneng kok, kamu ga kasian sama diri kamu sakit? kamu harus kasian sama diri kamu, harus di rawat dan di jaga ga
+            boleh telat makan apalagi sampe mual, itu ga boleh bahayaa takut nanti sakit kaya kamu sekarang jadi sakit kan? 
+            nurut ya sama aku, aku bilang gini karena aku sayang kamu, aku gamau kamu sakit, aku mau kamu jaga kesehatan,
+            cepet sembuh ya sayang, i love youuu
+ 
+        <p class="quote"></p>
+    </div>
+    <script>
+    function setupMusic() {
+        const music = document.getElementById('backgroundMusic');
+        
+        const isMusicPlaying = localStorage.getItem('musicPlaying') === 'true';
+        const musicCurrentTime = localStorage.getItem('musicCurrentTime') || 0;
+    
+        if (isMusicPlaying) {
+            music.currentTime = parseFloat(musicCurrentTime);
+        }
+    
+        music.addEventListener('play', () => {
+            localStorage.setItem('musicPlaying', 'true');
+        });
+    
+        music.addEventListener('pause', () => {
+            localStorage.setItem('musicPlaying', 'false');
+        });
+    
+        setInterval(() => {
+            localStorage.setItem('musicCurrentTime', music.currentTime);
+        }, 1000);
+    
+        document.addEventListener('click', function startMusic() {
+            music.play().catch(error => {
+                console.log('Autoplay prevented', error);
+            });
+            document.removeEventListener('click', startMusic);
+        });
+    }
+    
+        document.addEventListener('DOMContentLoaded', setupMusic);
+    </script>
+    
+</script>
+<!-- Musik -->
+<audio autoplay loop>
+    <source src="" type=" audio/mpeg" />
+  </audio>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.querySelector("audio");
+      const userInteraction = () => {
+        audio.play();
+        document.removeEventListener("click", userInteraction);
+      };
+      document.addEventListener("click", userInteraction);
+    });
+    </script>
+    </head>
+
+<html>
